@@ -264,12 +264,12 @@ public class LoginActivity extends AppCompatActivity  {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("username", NameHolder);
                 APIUrl.USER_NAME = NameHolder;
-                editor.commit();*/
+                editor.commit();
                 Intent intent = new Intent(LoginActivity.this, SideMenuActivity.class);
                 startActivity(intent);
-                finish();
+                finish();*/
 
-           /*  if (validateInputs()) {
+             if (validateInputs()) {
 
                     HashMap<String, String> params = new HashMap<>();
                     //Log.d("Verification","Mail: "+mail+" , code: "+verfication_num);
@@ -277,7 +277,7 @@ public class LoginActivity extends AppCompatActivity  {
                     params.put("password", PasswordHolder);
                     initializeLogin(false, params);
 
-                }*/
+                }
             }
         });
         Tv_Register_Login.setOnClickListener(new View.OnClickListener() {

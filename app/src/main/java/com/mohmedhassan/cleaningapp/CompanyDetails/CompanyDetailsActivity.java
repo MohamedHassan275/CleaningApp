@@ -125,11 +125,19 @@ public class CompanyDetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                Btn_packages.setBackground(Drawable.createFromPath(String.valueOf(R.drawable.btn_design)));
-                Btn_packages.setTextColor(Color.BLACK);
+                if(Btn_packages.isSelected()){
+
+                    Btn_packages.setBackground(Drawable.createFromPath(String.valueOf(R.drawable.btn_design)));
+                    Btn_packages.setTextColor(Color.WHITE);
+
+                    Btn_services.setBackground(Drawable.createFromPath(String.valueOf(R.drawable.rectangle_item)));
+                    Btn_services.setTextColor(Color.parseColor("#b300d6d3"));
+                }
 
                 Btn_services.setBackground(Drawable.createFromPath(String.valueOf(R.drawable.rectangle_item)));
-                Btn_services.setTextColor(Color.parseColor("#000"));
+                Btn_services.setTextColor(Color.parseColor("#b300d6d3"));
+
+
 
             }
         });
