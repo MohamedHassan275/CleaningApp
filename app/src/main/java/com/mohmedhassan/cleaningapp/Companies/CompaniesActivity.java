@@ -186,18 +186,18 @@ public class CompaniesActivity extends AppCompatActivity {
 
     }
 
-   /* private ArrayList<DataModelCompanies_item> populateList(){
+    private ArrayList<DataModelCompanies_item> populateList(){
 
         ArrayList<DataModelCompanies_item> list = new ArrayList<>();
 
         for(int i = 0; i < 8; i++){
             DataModelCompanies_item imageModel = new DataModelCompanies_item();
-            imageModel.setCompanyName(dataModelCompanyDeatils.get(i));
+            imageModel.setCompanyName(String.valueOf(dataModelCompanyDeatils.get(i)));
             list.add(imageModel);
         }
 
         return list;
-    }*/
+    }
 
 
     private void RecycleViewItem() {

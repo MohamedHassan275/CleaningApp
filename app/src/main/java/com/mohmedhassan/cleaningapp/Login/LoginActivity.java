@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity  {
     EditText UserName, Password;
     TextView  Tv_Register_Login, Tv_email, Tv_password,Tv_forgetpassword,Tv_LogOut_login,Tv_sign_in_login;
     Button Btn_Login,Btn_Facebook;
-    String NameHolder, PasswordHolder;
+    String NameHolder, PasswordHolder,Lang;
     CallbackManager callbackManager;
     private static final String EMAIL = "email";
     LoginButton Facebook;
@@ -260,6 +260,7 @@ public class LoginActivity extends AppCompatActivity  {
 
                 NameHolder = UserName.getText().toString();
                 PasswordHolder = Password.getText().toString();
+                Lang = "ar";
              /*   SharedPreferences sharedPreferences = getSharedPreferences("names", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("username", NameHolder);
@@ -273,6 +274,7 @@ public class LoginActivity extends AppCompatActivity  {
 
                     HashMap<String, String> params = new HashMap<>();
                     //Log.d("Verification","Mail: "+mail+" , code: "+verfication_num);
+                    params.put("lang",Lang);
                     params.put("name",NameHolder);
                     params.put("password", PasswordHolder);
                     initializeLogin(false, params);

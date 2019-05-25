@@ -43,13 +43,13 @@
             android:layout_margin="10dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/circle_imageview"
+                android:id="@+id/circle_imageview_sideMenu"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:src="@drawable/image_side_menu"/>
 
             <TextView
-                android:id="@+id/tv_name_profile"
+                android:id="@+id/tv_name_profile_sideMenu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mohammed Ali"

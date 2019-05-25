@@ -270,10 +270,6 @@ public class ProfileActivity extends AppCompatActivity {
                         Picasso.get().load(image).into(ImageUser);
                         CityUser.setText(cityUser);
 
-
-
-
-
                     }
 
                 /*    byte[] decodedString = Base64.decode(imageuser,Base64.NO_WRAP);

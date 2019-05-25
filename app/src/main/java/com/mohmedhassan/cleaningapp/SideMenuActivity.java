@@ -1,5 +1,6 @@
 package com.mohmedhassan.cleaningapp;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -25,8 +26,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mohmedhassan.cleaningapp.Companies.CompaniesActivity;
+import com.mohmedhassan.cleaningapp.HTTP_POST.HttpCall_Post;
+import com.mohmedhassan.cleaningapp.HTTP_POST.HttpRequest_Post;
 import com.mohmedhassan.cleaningapp.Login.LoginActivity;
+import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
+import java.util.HashMap;
 import java.util.Locale;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -38,7 +48,7 @@ public class SideMenuActivity extends AppCompatActivity
     LinearLayout Linearlayour_CarWash,Linearlayour_HouseCleaning,Linearlayour_Landry;
     CircleImageView ImageProfile;
     ImageView imageViewGoProfile;
-    TextView textViewGoProfile;
+    TextView textViewGoProfile,NameUserProfile,CityUSerProfile;
     Button btn_sign_out;
     Dialog dialog;
 
@@ -69,12 +79,14 @@ public class SideMenuActivity extends AppCompatActivity
 
          NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
          View headerLayout = navigationView.getHeaderView(0);
-         ImageProfile = headerLayout.findViewById(R.id.circle_imageview);
+         ImageProfile = headerLayout.findViewById(R.id.circle_imageview_sideMenu);
          imageViewGoProfile = headerLayout.findViewById(R.id.imageView_go_profile_sideMenu);
          textViewGoProfile = headerLayout.findViewById(R.id.tv_go_profile_sideMenu);
+         NameUserProfile = headerLayout.findViewById(R.id.tv_name_profile_sideMenu);
          btn_sign_out = headerLayout.findViewById(R.id.btn_sign_out_side_menu);
          navigationView.setNavigationItemSelectedListener(this);
 
+        ShowImageProfileAndName();
 
         Linearlayour_CarWash.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,6 +155,115 @@ public class SideMenuActivity extends AppCompatActivity
 
     }
     private void DevineView() {
+
+
+    }
+
+    private void ShowImageProfileAndName() {
+
+
+        String LanguageApp = "ar";
+        HashMap<String,String> params = new HashMap<>();
+        //Log.d("Verification","Mail: "+mail+" , code: "+verfication_num);
+        params.put("lang",LanguageApp);
+        params.put("token","LjFklY5VQIP2Xu5wQ3Wt7tvdFTRJl1pwOtqFKITSBkVR9tNyr7kuJ4q7seOQ");
+        initializeShowProfile(false,params);
+
+
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    private void initializeShowProfile(final boolean loadMore, HashMap<String, String> params) {
+
+//        try {
+//            getJSONObjectFromURL("https://api2.x4to.com/adduser?password=ddd&name=aaa&email=xx");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+
+
+      //  progressBar.setVisibility(View.VISIBLE);
+
+
+        HttpCall_Post httpCall_post = new HttpCall_Post();
+        httpCall_post.setMethodtype(HttpCall_Post.POST);
+        httpCall_post.setUrl(APIUrl.BASE_URL+"getUserDetails");
+        httpCall_post.setParams(params);
+
+        String vv= httpCall_post.getUrl() +  params ;
+        new HttpRequest_Post() {
+            @Override
+            public void onResponse(StringBuilder response) {
+                super.onResponse(response);
+//                try {
+                try {
+
+
+                    /*  nameUser  = NameUser.getText().toString();
+                      imageuser  = ImageUser.getResources().toString();
+                      cityUser  = CityUser.getText().toString();
+*/
+
+                    //      URL url = new URL("profile_picture");
+
+                    String   nameUser = "" ;
+                    String  image = "" ;
+                    String   cityUser = "" ;
+
+
+                    JSONTokener Xobject = new JSONTokener(response.toString());
+                    JSONObject Code = new JSONObject(Xobject);
+                    String C = Code.getString("code");
+
+                    if (C.contains("101") ) {
+
+                        Toast.makeText(getApplicationContext()," Error Upload Image  ..",Toast.LENGTH_LONG).show();
+
+                    //    progressBar.setVisibility(View.GONE);
+
+                        return;
+
+                    }
+
+                //    progressBar.setVisibility(View.GONE);
+
+                    JSONTokener tokener = new JSONTokener(response.toString());
+                    JSONObject data = new JSONObject(tokener);
+                    JSONArray object = data.getJSONArray("data");
+
+                    for(int i=0; i<object.length(); i++) {
+                        JSONObject   itemCountry = object.getJSONObject(i);  //gets the ith Json object of JSONArray
+                        nameUser  = itemCountry.getString("name");
+                        image = itemCountry.getString("profile_picture");
+                     //   cityUser  = itemCountry.getString("city_name");
+
+
+                        NameUserProfile.setText(nameUser);
+                        Picasso.get().load(image).into(ImageProfile);
+                    //    CityUSerProfile.setText(cityUser);
+
+
+
+
+
+                    }
+
+                /*    byte[] decodedString = Base64.decode(imageuser,Base64.NO_WRAP);
+                    InputStream inputStream  = new ByteArrayInputStream(decodedString);
+                    bitmap  = BitmapFactory.decodeStream(inputStream);*/
+                    //  ImageUser.setImageBitmap(bitmap);
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+            }
+        }.execute(httpCall_post);
 
 
     }

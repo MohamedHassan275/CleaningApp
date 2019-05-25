@@ -84,6 +84,7 @@ public class Companies_itemAdapter extends RecyclerView.Adapter<Companies_itemAd
 
     }
 
+
     @Override
     public int getItemCount() {
         return dataModelCompanyDeatils.size();

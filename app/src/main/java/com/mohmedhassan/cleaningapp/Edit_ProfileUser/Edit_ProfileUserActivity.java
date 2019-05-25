@@ -102,7 +102,7 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
     String country_id;
     String AccessCodeCountry, LanguageApp;
     ImageView back_edit_profile;
-    String email, age, password, sp_countryName, sp_cityName, imageProfilee, country_name;
+    String email, age, password, sp_countryName, sp_cityName, imageProfilee, country_name,Lang;
     int mobile, ImageView;
     private static final int STORAGE_PERMISSION_CODE = 123;
     private RequestQueue rQueue;
@@ -137,7 +137,7 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
 
 
         GetCountry();
-     //   GetCity(country_id);
+        GetCity(country_id);
         setOnClickListener();
 
 
@@ -255,8 +255,9 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
 
                /* Intent intent = new Intent(Edit_ProfileUserActivity.this, ProfileActivity.class);
                 startActivity(intent);*/
+
                 UploadProfile();
-                //  UploadPhoto();
+
 
             }
         });
@@ -283,15 +284,13 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
         password = Ed_Password.getText().toString().trim();
         sp_countryName = Sp_Country.getSelectedItem().toString().trim();
         sp_cityName = Sp_City.getSelectedItem().toString().trim();
-
-
+        Lang = "ar";
         if (validateInputs()) {
-
-            //   progressBar.setVisibility(View.GONE);
 
             HashMap<String, String> params = new HashMap<>();
             //Log.d("Verification","Mail: "+mail+" , code: "+verfication_num);
             params.put("token", "LjFklY5VQIP2Xu5wQ3Wt7tvdFTRJl1pwOtqFKITSBkVR9tNyr7kuJ4q7seOQ");
+            params.put("lang", Lang);
             params.put("email", email);
             params.put("mobile", String.valueOf(mobile));
             params.put("age", age);
@@ -633,7 +632,7 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
 
         HttpCall_Get call_get = new HttpCall_Get();
         call_get.setMethodtype(HttpCall_Get.GET);
-        call_get.setUrl(APIUrl.BASE_URL + "getCities");
+        call_get.setUrl(APIUrl.BASE_URL + "getCitiesRegister");
         call_get.setParams(params);
 
         String vv = call_get.getUrl() + params;
@@ -673,7 +672,7 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
                         //  city_id  = itemCity.getString("id");
                         cityList.add(new city_intity_Country(city));
                         spinnercity.add(city);
-                        // Toast.makeText(Edit_ProfileUserActivity.this, city, Toast.LENGTH_SHORT).show();
+                         Toast.makeText(Edit_ProfileUserActivity.this, city, Toast.LENGTH_SHORT).show();
 
                     }
                     ArrayAdapter<String> spinnerArrayAdapterCity = new ArrayAdapter<String>(Edit_ProfileUserActivity.this,
@@ -909,10 +908,7 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
 //        } catch (JSONException e) {
 //            e.printStackTrace();
 //        }
-
-
         progressBar.setVisibility(View.VISIBLE);
-
 
         HttpCall_Post httpCall_post = new HttpCall_Post();
         httpCall_post.setMethodtype(HttpCall_Post.POST);
