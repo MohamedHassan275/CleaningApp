@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:drawable="@drawable/pen"
+        android:height="15dp" android:width="15dp"
+        android:gravity="center"/>
+
+    <item android:drawable="@drawable/pen_small"
+        android:height="5dp" android:width="5dp"
+        android:top="13dp" android:right="13dp" android:gravity="center"/>
+</layer-list>

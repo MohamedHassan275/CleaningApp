@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Companies.CompaniesActivity">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_companies">
+
+        <ImageView
+            android:id="@+id/back_companies"
+            android:layout_margin="12dp"
+            android:layout_gravity="left"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/image_sham_left"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+         <LinearLayout
+             android:background="@drawable/rectangle_searchview_companies"
+             android:layout_width="300dp"
+             android:layout_height="wrap_content">
+
+             <ImageView
+                 android:layout_width="25dp"
+                 android:layout_height="25dp"
+                 android:layout_gravity="center"
+                 android:src="@drawable/image_search_companies"/>
+             <EditText
+                 android:padding="7dp"
+                 android:layout_width="250dp"
+                 android:layout_height="35dp"
+                 android:id="@+id/editText"
+                 android:background="#F8F4F4"
+                 android:textSize="12sp"
+                 android:hint="@string/search"
+                 android:singleLine="true">
+                 <requestFocus/>
+             </EditText>
+
+
+         </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/image_add_location"/>
+
+            <SearchView
+                android:visibility="gone"
+                android:id="@+id/search_input"
+                android:searchIcon="@drawable/image_search_companies"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/rectangle_searchview_companies"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="285dp"
+                android:layout_height="35dp"
+                android:queryHint="Mitarbeiter suchen">
+
+            </SearchView>
+
+        </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_Name"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:visibility="visible"
+            android:id="@+id/linearlayout_addpriceCompanies"
+            android:orientation="vertical"
+            android:layout_width="165dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/image_add_price_companies">
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_your_price"
+                android:textSize="15sp"
+                android:textColor="#ff0075f8"/>
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/m_progress_company"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_CompanyDetais"
+            android:layout_gravity="center"
+            android:layout_marginTop="35dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
+
+
+
+

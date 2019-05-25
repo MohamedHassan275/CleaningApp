@@ -1,0 +1,92 @@
+<resources>
+    <string name="app_name">cleaning</string>
+
+    <string name="facebook_app_id">431074714318007</string>
+    <string name="fb_login_protocol_scheme">fb431074714318007</string>
+
+    <string name="twitter_consumer_key">d1UtpayL7QuKWXDagE4joNOln</string>
+    <string name="twitter_consumer_secret">U7pYygEpvgRCIutI1Mu3398EOxWmLd0seR1k9gJf2CyGHLvuFa</string>
+
+    <string name="title_activity_slide_menu">SlideMenuActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+    <string name="error_invalid_email" translatable="false">This email address is invalid</string>
+    <string name="error_invalid_password" translatable="false">This password is too short</string>
+    <string name="error_incorrect_password" translatable="false">This password is incorrect</string>
+    <string name="error_field_required" translatable="false">This field is required</string>
+    <string name="login" translatable="false">Login</string>
+    <string name="password_and_confirm_notmatch" translatable="false">Confirm password is not password </string>
+    <string name="changelanguage" translatable="false">Change Language</string>
+    <string name="arabic" translatable="false">Arabic</string>
+    <string name="english" translatable="false">English</string>
+
+    <string name="sign_in" translatable="false">Sign in</string>
+    <string name="sign_up" translatable="false">Sign up</string>
+    <string name="user_name" translatable="false">user name</string>
+    <string name="email" translatable="false">email</string>
+    <string name="password" translatable="false">password</string>
+    <string name="forget_password" translatable="false">Forget  Password  ?</string>
+    <string name="log_with_in" translatable="false">Log with in</string>
+
+    <string name="profile" translatable="false">profile</string>
+    <string name="home_side_menu" translatable="false">Home</string>
+    <string name="order_side_menu" translatable="false">Orders</string>
+    <string name="vouchres_side_menu" translatable="false">Vouchres</string>
+    <string name="point_side_menu" translatable="false">Points</string>
+    <string name="contact_us_side_menu" translatable="false">Contact us</string>
+    <string name="about_app_side_menu" translatable="false">About app</string>
+    <string name="change_language_side_menu" translatable="false">Change language</string>
+    <string name="sign_out_side_menu" translatable="false">Sign out</string>
+
+
+    <string name="mobile" translatable="false">Mobile</string>
+    <string name="age" translatable="false">Age</string>
+    <string name="coupons" translatable="false">Coupons</string>
+    <string name="share" translatable="false">Share</string>
+    <string name="setting" translatable="false">Setting</string>
+    <string name="tv_country" translatable="false">Country</string>
+    <string name="tv_city" translatable="false">City</string>
+    <string name="save" translatable="false">Save</string>
+    <string name="edit" translatable="false">Edit</string>
+    <string name="top_company" translatable="false">Top Company</string>
+    <string name="all_company" translatable="false">All Company</string>
+    <string name="highest_price" translatable="false">Highest clean</string>
+    <string name="lowest_price" translatable="false">Lowest clean</string>
+    <string name="add_your_price" translatable="false">ADD YOUR PRICE</string>
+    <string name="search" translatable="false">Search</string>
+
+    <string name="services" translatable="false">Services</string>
+    <string name="packages" translatable="false">Packages</string>
+    <string name="others" translatable="false">Other</string>
+
+    <string name="company_name" translatable="false">Company 1 </string>
+    <string name="commnets" translatable="false">Comments : </string>
+    <string name="reviews" translatable="false">ReViews : </string>
+    <string name="tv_comments" translatable="false"> 3 </string>
+    <string name="tv_reviews" translatable="false"> 5 </string>
+    <string name="minimum_order" translatable="false">Minimum order : </string>
+    <string name="tv_minimum_order" translatable="false">2050$</string>
+    <string name="car_companies" translatable="false">Away from You 2KM</string>
+    <string name="gps_delevary" translatable="false">We have a home deleivery</string>
+
+    <string name="verification_code" translatable="false">Verification Code</string>
+    <string name="confirm_password" translatable="false">Confirm password</string>
+    <string name="submit" translatable="false">submit</string>
+    <string name="verfiy_now" translatable="false">verfiy  now</string>
+    <string name="done" translatable="false">Done</string>
+    <string name="Send" translatable="false">Send</string>
+
+    <string name="categories" translatable="false">Categories</string>
+    <string name="car_wash" translatable="false">Car Wash</string>
+    <string name="house_cleaning" translatable="false">House Cleaning</string>
+    <string name="laundry" translatable="false">Laundry</string>
+
+    <string name="forget_password_activty" translatable="false">Forget  Password</string>
+    <string name="add_your_email" translatable="false">Add your email to reset</string>
+    <string name="your_password" translatable="false">your password</string>
+
+
+
+</resources>

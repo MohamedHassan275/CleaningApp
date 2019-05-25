@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".SideMenuActivity"
+    tools:showIn="@layout/app_bar_slide_menu"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:background="@drawable/background_department"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_marginTop="35dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_eamil_logindddd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categories"
+                android:textSize="25sp"
+                android:layout_margin="19dp"
+                android:textColor="#ffffffff"/>
+
+            <LinearLayout
+                android:id="@+id/linearlayout_car_wash"
+                android:layout_marginTop="5dp"
+                android:layout_width="275dp"
+                android:layout_height="135dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rectangle_car_image_department"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_margin="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/image_car_department"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/car_wash"
+                    android:layout_gravity="center"
+                    android:layout_margin="25dp"
+                    android:textSize="15sp"
+                    android:textColor="#ff0065ff"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearlayout_house_cleaning"
+                android:layout_width="275dp"
+                android:layout_marginTop="35dp"
+                android:layout_height="135dp"
+                android:layout_gravity="center"
+                android:background="@drawable/image_house_department"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_margin="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/rectangle_home_image_department"/>
+
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/house_cleaning"
+                    android:textSize="15sp"
+                    android:textColor="#fff8f8fd"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearlayout_landry"
+                android:layout_width="275dp"
+                android:layout_marginTop="15dp"
+                android:layout_height="135dp"
+                android:layout_gravity="center"
+                android:background="@drawable/image_landry_department"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_margin="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/rectangle_landry_image_department"/>
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/laundry"
+                    android:layout_margin="25dp"
+                    android:textSize="15sp"
+                    android:textColor="#fff8f8fd"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

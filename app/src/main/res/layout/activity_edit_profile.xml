@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Edit_ProfileUser.Edit_ProfileUserActivity">
+
+   <LinearLayout
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:background="@drawable/background_profile_details_complete">
+
+       <ImageView
+           android:id="@+id/back_edit_profile"
+           android:layout_margin="12dp"
+           android:layout_gravity="left"
+           android:layout_width="22dp"
+           android:layout_height="22dp"
+           android:src="@drawable/image_sham_left"/>
+
+       <de.hdodenhof.circleimageview.CircleImageView
+           android:id="@+id/imageview_profile"
+           android:layout_width="100dp"
+           android:layout_height="100dp"
+           android:layout_marginTop="15dp"
+           android:layout_gravity="center"
+           android:gravity="center"
+           android:src="@drawable/design_image_view"/>
+
+       <ProgressBar
+           android:id="@+id/m_progress_Image_profile"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:visibility="gone"/>
+
+       <LinearLayout
+           android:orientation="vertical"
+           android:layout_width="wrap_content"
+           android:layout_height="345dp"
+           android:layout_marginTop="15dp"
+           android:layout_gravity="center"
+           android:background="@drawable/rectangle_datauser_update_profile">
+
+         <LinearLayout
+             android:layout_margin="10dp"
+             android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+             <TextView
+                 android:id="@+id/tv_eamil_profile"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/email"
+                 android:textSize="12sp"
+                 android:visibility="invisible"
+                 android:layout_marginTop="5dp"
+                 android:layout_marginLeft="24dp"
+                 android:singleLine="true"
+                 android:textColor="#B6B3B3"/>
+
+             <EditText
+                 android:id="@+id/ed_email_profile"
+                 android:layout_width="225dp"
+                 android:background="#FFFEFE"
+                 android:layout_height="wrap_content"
+                 android:layout_marginLeft="24dp"
+                 android:layout_marginTop="5dp"
+                 android:hint="@string/email"
+                 android:textColor="#ff212121"
+                 android:inputType="textEmailAddress"
+                 android:maxLines="1"
+                 android:singleLine="true"
+                 android:textSize="16sp" />
+
+             <TextView
+                 android:id="@+id/tv_mobile_profile"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/mobile"
+                 android:textSize="12sp"
+                 android:visibility="invisible"
+                 android:layout_marginTop="10dp"
+                 android:layout_marginLeft="24dp"
+                 android:singleLine="true"
+                 android:textColor="#B6B3B3"/>
+
+             <EditText
+                 android:id="@+id/ed_mobile_profile"
+                 android:layout_width="225dp"
+                 android:background="#FFFEFE"
+                 android:layout_height="wrap_content"
+                 android:layout_marginLeft="24dp"
+                 android:layout_marginTop="5dp"
+                 android:hint="@string/mobile"
+                 android:textColor="#ff212121"
+                 android:inputType="number"
+                 android:maxLines="1"
+                 android:singleLine="true"
+                 android:textSize="16sp" />
+             <TextView
+                 android:id="@+id/tv_age_profile"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/age"
+                 android:textSize="12sp"
+                 android:visibility="invisible"
+                 android:layout_marginTop="10dp"
+                 android:layout_marginLeft="24dp"
+                 android:singleLine="true"
+                 android:textColor="#B6B3B3"/>
+
+             <EditText
+                 android:id="@+id/ed_age_profile"
+                 android:layout_width="225dp"
+                 android:background="#FFFEFE"
+                 android:layout_height="wrap_content"
+                 android:layout_marginLeft="24dp"
+                 android:layout_marginTop="5dp"
+                 android:hint="@string/age"
+                 android:textColor="#ff212121"
+                 android:inputType="number"
+                 android:maxLines="1"
+                 android:singleLine="true"
+                 android:textSize="16sp" />
+             <TextView
+                 android:id="@+id/tv_country_profile"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/tv_country"
+                 android:textSize="12sp"
+                 android:visibility="invisible"
+                 android:layout_marginTop="10dp"
+                 android:layout_marginLeft="24dp"
+                 android:singleLine="true"
+                 android:textColor="#B6B3B3"/>
+
+             <Spinner
+                 android:layout_marginTop="3dp"
+                 android:layout_gravity="center"
+                 android:id="@+id/sp_country__profile"
+                 android:layout_width="225dp"
+                 android:layout_height="wrap_content"/>
+             <TextView
+                 android:id="@+id/tv_city_profile"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/tv_city"
+                 android:textSize="12sp"
+                 android:visibility="invisible"
+                 android:layout_marginTop="10dp"
+                 android:layout_marginLeft="24dp"
+                 android:singleLine="true"
+                 android:textColor="#B6B3B3"/>
+
+             <Spinner
+                 android:layout_marginTop="3dp"
+                 android:layout_gravity="center"
+                 android:id="@+id/sp_city__profilee"
+                 android:layout_width="225dp"
+                 android:layout_height="wrap_content"
+                 android:singleLine="true"/>
+             <TextView
+                 android:id="@+id/tv_password_profile"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/password"
+                 android:textSize="12sp"
+                 android:visibility="invisible"
+                 android:layout_marginTop="15dp"
+                 android:layout_marginLeft="24dp"
+                 android:singleLine="true"
+                 android:textColor="#B6B3B3"/>
+
+             <EditText
+                 android:id="@+id/ed_password_profile"
+                 android:layout_width="225dp"
+                 android:background="#FFFEFE"
+                 android:layout_height="wrap_content"
+                 android:layout_marginLeft="24dp"
+                 android:layout_marginTop="5dp"
+                 android:layout_marginBottom="10dp"
+                 android:hint="@string/password"
+                 android:textColor="#ff212121"
+                 android:inputType="textPassword"
+                 android:maxLines="1"
+                 android:singleLine="true"
+                 android:textSize="16sp" />
+
+         </LinearLayout>
+
+
+       </LinearLayout>
+
+       <ProgressBar
+           android:id="@+id/m_progress_profile"
+           android:layout_width="15dp"
+           android:layout_height="15dp"
+           android:layout_gravity="center"
+           android:visibility="gone"/>
+
+       <Button
+           android:id="@+id/btn_save_profile"
+           android:layout_width="215dp"
+           android:layout_height="45dp"
+           android:layout_marginLeft="80dp"
+           android:layout_marginRight="80dp"
+           android:layout_marginTop="5dp"
+           android:textColor="#fffbfbfe"
+           android:text="@string/save"
+           android:textAllCaps="true"
+           android:background="@drawable/btn_design_profile"/>
+
+
+
+   </LinearLayout>
+   </LinearLayout>

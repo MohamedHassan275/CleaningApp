@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:drawable="@drawable/circle_layout"
+        android:height="15dp" android:width="15dp"
+         android:gravity="center"/>
+
+    <item android:drawable="@drawable/pen"
+        android:height="5dp" android:width="5dp"
+       android:gravity="center" android:left="2dp"
+        android:top="-3dp"/>
+
+    <item android:drawable="@drawable/pen_small"
+        android:height="2dp" android:width="2dp"
+       android:gravity="center" android:left="-3dp"
+        android:top="1.6dp"/>
+
+</layer-list>

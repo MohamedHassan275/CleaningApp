@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">cleaning</string>
+
+    <string name="facebook_app_id">431074714318007</string>
+    <string name="fb_login_protocol_scheme">fb431074714318007</string>
+
+    <string name="twitter_consumer_key">d1UtpayL7QuKWXDagE4joNOln</string>
+    <string name="twitter_consumer_secret">U7pYygEpvgRCIutI1Mu3398EOxWmLd0seR1k9gJf2CyGHLvuFa</string>
+
+
+    <string name="title_activity_slide_menu">SlideMenuActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+    <string name="error_invalid_email" translatable="false">خطأ في البريد الالكتروني </string>
+    <string name="error_invalid_password" translatable="false">كلمة السر قصير جدا</string>
+    <string name="error_incorrect_password" translatable="false">>خطأ في كلمة السر</string>
+    <string name="error_field_required" translatable="false">هذا الحقل مطلوب</string>
+    <string name="login" translatable="false">تسجيل الدخول</string>
+    <string name="password_and_confirm_notmatch" translatable="false">كلمة السر غير متطابقة </string>
+    <string name="changelanguage" translatable="false">تغير اللغة</string>
+    <string name="arabic" translatable="false">اللغة العربية</string>
+    <string name="english" translatable="false">اللغة الانجليزية</string>
+
+    <string name="sign_in" translatable="false">تسجيل دخول</string>
+    <string name="sign_up" translatable="false">تسجيل اشتراك</string>
+    <string name="user_name" translatable="false">اسم المستخدم</string>
+    <string name="email" translatable="false">الايميل</string>
+    <string name="password" translatable="false">كلمة السر</string>
+    <string name="forget_password" translatable="false">هل نسيت كلمة السر ؟</string>
+    <string name="log_with_in" translatable="false">سجل بواسطة وسائل التواصل الاجتماعي</string>
+
+    <string name="profile" translatable="false">صفحتك</string>
+    <string name="home_side_menu" translatable="false">الرئيسية</string>
+    <string name="order_side_menu" translatable="false">الطلبات</string>
+    <string name="vouchres_side_menu" translatable="false">الهدايا</string>
+    <string name="point_side_menu" translatable="false">النقاط</string>
+    <string name="contact_us_side_menu" translatable="false">تواصل معنا</string>
+    <string name="about_app_side_menu" translatable="false">حول التطبيق</string>
+    <string name="change_language_side_menu" translatable="false">تغيير اللغة</string>
+    <string name="sign_out_side_menu" translatable="false">تسجيل خروج</string>
+
+    <string name="mobile" translatable="false">الموبيل</string>
+    <string name="age" translatable="false">العمر</string>
+    <string name="coupons" translatable="false">كوبونات</string>
+    <string name="share" translatable="false">مشاركة</string>
+    <string name="setting" translatable="false">الاعدادات</string>
+    <string name="tv_country" translatable="false">البلد</string>
+    <string name="tv_city" translatable="false">المدينة</string>
+    <string name="save" translatable="false">حفظ</string>
+    <string name="edit" translatable="false">تعديل</string>
+    <string name="top_company" translatable="false">اعلي الشركات</string>
+    <string name="all_company" translatable="false">كل الشركات</string>
+    <string name="highest_price" translatable="false">اعلي السعر</string>
+    <string name="lowest_price" translatable="false">ادني السعر</string>
+    <string name="add_your_price" translatable="false">اضف سعرك</string>
+    <string name="search" translatable="false">ابحث عن ... </string>
+
+    <string name="services" translatable="false">خدمات</string>
+    <string name="packages" translatable="false">خزم</string>
+    <string name="others" translatable="false">اخري</string>
+
+    <string name="company_name" translatable="false">شركة 1 </string>
+    <string name="commnets" translatable="false">تعليقات : </string>
+    <string name="reviews" translatable="false">استعراض : </string>
+    <string name="tv_comments" translatable="false"> 3 </string>
+    <string name="tv_reviews" translatable="false"> 5 </string>
+    <string name="minimum_order" translatable="false">الحد الادني : </string>
+    <string name="tv_minimum_order" translatable="false"> 2050$ </string>
+    <string name="car_companies" translatable="false">بعيدا عنك ب 2 كيلومتر</string>
+    <string name="gps_delevary" translatable="false">لدينا ديليفري للمنازل</string>
+
+    <string name="verification_code" translatable="false">كود التحقق</string>
+    <string name="confirm_password" translatable="false">اعادة كلمة السر</string>
+    <string name="submit" translatable="false">التالي</string>
+    <string name="verfiy_now" translatable="false">تحقق الان </string>
+    <string name="done" translatable="false">تم</string>
+    <string name="Send" translatable="false">ارسال</string>
+
+    <string name="categories" translatable="false">اقسام التطبيق</string>
+    <string name="car_wash" translatable="false">غسيل سيارات</string>
+    <string name="house_cleaning" translatable="false">تنظيف المنازل</string>
+    <string name="laundry" translatable="false">غسيل ملابس</string>
+
+    <string name="forget_password_activty" translatable="false">هل نسيت كلمة السر</string>
+    <string name="add_your_email" translatable="false">ادخل الايميل لكي تغير</string>
+    <string name="your_password" translatable="false">كلمة السر</string>
+
+
+</resources>

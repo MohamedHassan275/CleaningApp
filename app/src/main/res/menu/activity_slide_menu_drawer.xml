@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_Home"
+            android:icon="@drawable/image_home_side_menu"
+            android:title="@string/home_side_menu" />
+
+        <item
+            android:id="@+id/nav_order"
+            android:icon="@drawable/image_order_side_menu"
+            android:title="@string/order_side_menu" />
+        <item
+            android:id="@+id/nav_vouchres"
+            android:icon="@drawable/image_vouchres_side_menu"
+            android:title="@string/vouchres_side_menu" />
+        <item
+            android:id="@+id/nav_point"
+            android:icon="@drawable/image_points_side_menu"
+            android:title="@string/point_side_menu" />
+        <item
+            android:id="@+id/nav_contact_us"
+            android:icon="@drawable/image_order_contact_us_menu"
+            android:title="@string/contact_us_side_menu" />
+        <item
+            android:id="@+id/nav_about_app"
+            android:icon="@drawable/image_about_app_side_menu"
+            android:title="@string/about_app_side_menu" />
+        <item
+            android:id="@+id/nav_change_language"
+            android:icon="@drawable/image_change_language_side_menu"
+            android:title="@string/change_language_side_menu" />
+
+        <item
+            android:id="@+id/nav_sign_out"
+            app:actionLayout="@layout/button_side_menu"
+            android:title="" />
+    </group>
+
+
+
+</menu>
