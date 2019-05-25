@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -57,27 +58,28 @@ public class CompanyDetailsActivity extends AppCompatActivity {
 
 
     MyAdapter adapter;
-  //  ArrayList<CompanyDetails_item_Model> companyDetails_item_models;
+    //  ArrayList<CompanyDetails_item_Model> companyDetails_item_models;
     Context context;
     ProgressBar progressBar;
-    RecyclerView recyclerview_item_order_companyDetails,recyclerview_item_companyDetails;
+    RecyclerView recyclerview_item_order_companyDetails, recyclerview_item_companyDetails;
     GridView gridview__item_companyDetails;
-    TextView CompanyName,CommentsCompany,ReviewsCompany,PriceCompany,PriceCompanyNumber;
+    TextView CompanyName, CommentsCompany, ReviewsCompany, PriceCompany, PriceCompanyNumber;
     RatingBar RateCompany;
     private int selectedPosition = -1;
-    Button Btn_packages,Btn_services,Btn_offers;
+    Button Btn_packages, Btn_services, Btn_offers;
     CompanyDetails_item_Adapter companyDetails_item_adapter;
     ArrayList<CompanyDetails_item_Model> companyDetails_item_models = new ArrayList<>();
 
-    ImageView imageViewHome,imageViewSort,imageViewProfile,back_company_details;
+    ImageView imageViewHome, imageViewSort, imageViewProfile, back_company_details;
     LinearLayout linearLayoutHome;
-    String companyName,reviewsCompany,commentCompany,priceCompany;
-    String Services,Packages,Others;
+    String companyName, reviewsCompany, commentCompany, priceCompany;
+    String Services, Packages, Others;
     double rateCompany;
     Bundle b;
-    boolean check = false;
+    boolean changeButton = false;
 
     JSONObject jsonObjectItemCompanyDetails;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,17 +125,11 @@ public class CompanyDetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                if (Btn_packages.isSelected()) {
+                Btn_packages.setBackground(Drawable.createFromPath(String.valueOf(R.drawable.btn_design)));
+                Btn_packages.setTextColor(Color.BLACK);
 
-                    Btn_packages.setBackground(ContextCompat.getDrawable(context,R.drawable.rectangle3));
-                    Btn_packages.setTextColor(Color.WHITE);
-                }else {
-
-                    Btn_packages.setBackground(ContextCompat.getDrawable(context,R.drawable.rectangle_58));
-                    Btn_packages.setTextColor(Color.parseColor("#b300d6d3"));
-                }
-
-
+                Btn_services.setBackground(Drawable.createFromPath(String.valueOf(R.drawable.rectangle_item)));
+                Btn_services.setTextColor(Color.parseColor("#000"));
 
             }
         });
@@ -142,15 +138,17 @@ public class CompanyDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (Btn_services.isSelected()) {
 
-                    Btn_services.setBackground(ContextCompat.getDrawable(context,R.drawable.rectangle3));
+                if(changeButton == true){
+
+                    Btn_services.setBackground(Drawable.createFromPath(String.valueOf(R.drawable.rectangle3)));
                     Btn_services.setTextColor(Color.WHITE);
-                }else {
-
-                    Btn_services.setBackground(ContextCompat.getDrawable(context,R.drawable.rectangle_58));
-                    Btn_services.setTextColor(Color.parseColor("#b300d6d3"));
                 }
+
+                Btn_services.setBackground(Drawable.createFromPath(String.valueOf(R.drawable.btn_design)));
+                Btn_services.setTextColor(Color.parseColor("#b300d6d3"));
+
+
 
             }
         });
@@ -160,15 +158,15 @@ public class CompanyDetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                if (Btn_offers.isSelected()) {
+                if(changeButton == true){
 
-                    Btn_offers.setBackground(ContextCompat.getDrawable(context,R.drawable.rectangle3));
+                    Btn_offers.setBackground(Drawable.createFromPath(String.valueOf(R.drawable.btn_design)));
                     Btn_offers.setTextColor(Color.WHITE);
-                }else {
-
-                    Btn_offers.setBackground(ContextCompat.getDrawable(context,R.drawable.rectangle_58));
-                    Btn_offers.setTextColor(Color.parseColor("#b300d6d3"));
                 }
+
+                Btn_offers.setBackground(Drawable.createFromPath(String.valueOf(R.drawable.rectangle_58)));
+                Btn_offers.setTextColor(Color.parseColor("#b300d6d3"));
+
 
             }
         });
@@ -226,7 +224,6 @@ public class CompanyDetailsActivity extends AppCompatActivity {
         });
 
 
-
         RecycleViewItem();
 
     }
@@ -241,9 +238,7 @@ public class CompanyDetailsActivity extends AppCompatActivity {
         initializeGetCompanyDetails(false, params);
 
 
-
     }
-
 
 
     public void trustEveryone() {
@@ -354,9 +349,9 @@ public class CompanyDetailsActivity extends AppCompatActivity {
                         CompanyDetails_item_Model companyDetails_item_model = new CompanyDetails_item_Model();
                         jsonObjectItemCompanyDetails = object.getJSONObject(i);
                         companyDetails_item_model.setImageCompany(R.drawable.iamge_item_company_details);
-                        companyDetails_item_model.setPrice(jsonObjectItemCompanyDetails.getString("offers")+ "$");
+                        companyDetails_item_model.setPrice(jsonObjectItemCompanyDetails.getString("offers") + "$");
                         companyDetails_item_model.setClean(jsonObjectItemCompanyDetails.getString("packages"));
-                        companyDetails_item_model.setCarwish(jsonObjectItemCompanyDetails.getString("services") );
+                        companyDetails_item_model.setCarwish(jsonObjectItemCompanyDetails.getString("services"));
                         //check here
 
                         companyDetails_item_models.add(companyDetails_item_model);
