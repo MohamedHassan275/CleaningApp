@@ -7,8 +7,7 @@ public class DataModelCompanies_item {
     int Comment,Reviews,Minimum_Order,car_Gps,Delivery_Gps;
     double Rating;
 
-    public DataModelCompanies_item() {
-    }
+
 
     public DataModelCompanies_item(int photo, String companyName, String reviewsNumber, String commentsNumber
             , String munimum_Order_Number, int comment, int reviews, int minimum_Order, int car_Gps, int delivery_Gps, double rating) {

@@ -5,8 +5,7 @@ public class CompanyDetails_item_Model {
     int imageCompany;
     String  carwish, Clean, Price,Price_Number;
 
-    public CompanyDetails_item_Model() {
-    }
+
 
     public CompanyDetails_item_Model(int imageCompany, String carwish, String clean, String price, String price_Number) {
         this.imageCompany = imageCompany;

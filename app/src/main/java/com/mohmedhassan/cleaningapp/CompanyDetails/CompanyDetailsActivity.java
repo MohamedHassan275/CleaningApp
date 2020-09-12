@@ -3,16 +3,13 @@ package com.mohmedhassan.cleaningapp.CompanyDetails;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -124,19 +121,12 @@ public class CompanyDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-                if(Btn_packages.isSelected()){
-
+           /*     if(v.getId()==R.id.btn_item_packages){
                     Btn_packages.setBackground(Drawable.createFromPath(String.valueOf(R.drawable.btn_design)));
-                    Btn_packages.setTextColor(Color.WHITE);
-
-                    Btn_services.setBackground(Drawable.createFromPath(String.valueOf(R.drawable.rectangle_item)));
-                    Btn_services.setTextColor(Color.parseColor("#b300d6d3"));
+                    Btn_packages.setTextColor(Color.BLUE);
                 }
-
                 Btn_services.setBackground(Drawable.createFromPath(String.valueOf(R.drawable.rectangle_item)));
-                Btn_services.setTextColor(Color.parseColor("#b300d6d3"));
-
+                Btn_services.setTextColor(Color.parseColor("#b300d6d3"));*/
 
 
             }
@@ -147,17 +137,12 @@ public class CompanyDetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                if(changeButton == true){
-
+              /*  if(v.getId() == R.id.btn_item_services){
                     Btn_services.setBackground(Drawable.createFromPath(String.valueOf(R.drawable.rectangle3)));
                     Btn_services.setTextColor(Color.WHITE);
                 }
-
                 Btn_services.setBackground(Drawable.createFromPath(String.valueOf(R.drawable.btn_design)));
-                Btn_services.setTextColor(Color.parseColor("#b300d6d3"));
-
-
-
+                Btn_services.setTextColor(Color.parseColor("#b300d6d3"));*/
             }
         });
         Btn_offers.setOnClickListener(new View.OnClickListener() {
@@ -165,16 +150,12 @@ public class CompanyDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-                if(changeButton == true){
-
-                    Btn_offers.setBackground(Drawable.createFromPath(String.valueOf(R.drawable.btn_design)));
+              /*  if (v.getId() == R.id.btn_item_offers) {
+                    Btn_offers.setBackgroundColor(Color.BLUE);
                     Btn_offers.setTextColor(Color.WHITE);
                 }
-
                 Btn_offers.setBackground(Drawable.createFromPath(String.valueOf(R.drawable.rectangle_58)));
-                Btn_offers.setTextColor(Color.parseColor("#b300d6d3"));
-
+                Btn_offers.setTextColor(Color.parseColor("#b300d6d3"));*/
 
             }
         });
@@ -238,12 +219,50 @@ public class CompanyDetailsActivity extends AppCompatActivity {
 
     private void RecycleViewItem() {
 
-        String LanguageApp = "ar";
+
+        companyDetails_item_adapter = new CompanyDetails_item_Adapter(context, companyDetails_item_models);
+        recyclerview_item_companyDetails.setLayoutManager(new GridLayoutManager(context, 2));
+        recyclerview_item_companyDetails.setItemAnimator(new DefaultItemAnimator());
+        recyclerview_item_companyDetails.setAdapter(companyDetails_item_adapter);
+        companyDetails_item_adapter.notifyDataSetChanged();
+
+        RecycleViewItemItem();
+
+       /* String LanguageApp = "ar";
         HashMap<String, String> params = new HashMap<>();
         //Log.d("Verification","Mail: "+mail+" , code: "+verfication_num);
         params.put("token", "LjFklY5VQIP2Xu5wQ3Wt7tvdFTRJl1pwOtqFKITSBkVR9tNyr7kuJ4q7seOQ");
         params.put("lang", LanguageApp);
-        initializeGetCompanyDetails(false, params);
+        initializeGetCompanyDetails(false, params);*/
+
+
+    }
+
+    private void RecycleViewItemItem() {
+
+        CompanyDetails_item_Model companyDetails_item_model = new CompanyDetails_item_Model(R.drawable.iamge_item_company_details,
+                "Car Wish","Clean","price","1500");
+        companyDetails_item_models.add(companyDetails_item_model);
+
+        companyDetails_item_model = new CompanyDetails_item_Model(R.drawable.iamge_item_company_details,
+                "Car Wish","Clean","price","1250");
+        companyDetails_item_models.add(companyDetails_item_model);
+
+        companyDetails_item_model = new CompanyDetails_item_Model(R.drawable.iamge_item_company_details,
+                "Car Wish","Clean","price","1300");
+        companyDetails_item_models.add(companyDetails_item_model);
+
+        companyDetails_item_model = new CompanyDetails_item_Model(R.drawable.iamge_item_company_details,
+                "Car Wish","Clean","price","1200");
+        companyDetails_item_models.add(companyDetails_item_model);
+
+        companyDetails_item_model = new CompanyDetails_item_Model(R.drawable.iamge_item_company_details,
+                "Car Wish","Clean","price","1000");
+        companyDetails_item_models.add(companyDetails_item_model);
+
+        companyDetails_item_model = new CompanyDetails_item_Model(R.drawable.iamge_item_company_details,
+                "Car Wish","Clean","price","1750");
+        companyDetails_item_models.add(companyDetails_item_model);
 
 
     }
@@ -354,15 +373,15 @@ public class CompanyDetailsActivity extends AppCompatActivity {
 
                     for (int i = 0; i < object.length(); i++) {
                         //gets the ith Json object of JSONArray
-                        CompanyDetails_item_Model companyDetails_item_model = new CompanyDetails_item_Model();
+                      //  CompanyDetails_item_Model companyDetails_item_model = new CompanyDetails_item_Model();
                         jsonObjectItemCompanyDetails = object.getJSONObject(i);
-                        companyDetails_item_model.setImageCompany(R.drawable.iamge_item_company_details);
+                      /*  companyDetails_item_model.setImageCompany(R.drawable.iamge_item_company_details);
                         companyDetails_item_model.setPrice(jsonObjectItemCompanyDetails.getString("offers") + "$");
                         companyDetails_item_model.setClean(jsonObjectItemCompanyDetails.getString("packages"));
                         companyDetails_item_model.setCarwish(jsonObjectItemCompanyDetails.getString("services"));
                         //check here
 
-                        companyDetails_item_models.add(companyDetails_item_model);
+                        companyDetails_item_models.add(companyDetails_item_model);*/
                         companyDetails_item_adapter = new CompanyDetails_item_Adapter(context, companyDetails_item_models);
                         recyclerview_item_companyDetails.setLayoutManager(new GridLayoutManager(context, 2));
                         recyclerview_item_companyDetails.setItemAnimator(new DefaultItemAnimator());

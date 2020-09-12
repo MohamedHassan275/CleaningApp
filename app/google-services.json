@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "512981101715",
+    "firebase_url": "https://cleaning-202fc.firebaseio.com",
+    "project_id": "cleaning-202fc",
+    "storage_bucket": "cleaning-202fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512981101715:android:6ff604f5446364fcd0b166",
+        "android_client_info": {
+          "package_name": "com.mohmedhassan.cleaningapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512981101715-7nkk2q5dcdeufq7nvv07qkel1cvq5nup.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mohmedhassan.cleaningapp",
+            "certificate_hash": "4fce8eb39e73e443ae4faac5fc5da420c0484b43"
+          }
+        },
+        {
+          "client_id": "512981101715-198ss3qg9lilerngolrel5su506232no.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfQ7hp2ZOOOjablkuGnmVJfYTDt6Ki_JY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "512981101715-198ss3qg9lilerngolrel5su506232no.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -35,9 +35,14 @@
             android:id="@+id/nav_change_language"
             android:icon="@drawable/image_change_language_side_menu"
             android:title="@string/change_language_side_menu" />
-
         <item
             android:id="@+id/nav_sign_out"
+            android:title="@string/sign_out_side_menu" />
+
+
+        <item
+            android:visible="false"
+            android:id="@+id/nav_sign_out2"
             app:actionLayout="@layout/button_side_menu"
             android:title="" />
     </group>

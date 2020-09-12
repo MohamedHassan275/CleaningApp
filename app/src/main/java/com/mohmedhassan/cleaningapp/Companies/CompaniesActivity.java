@@ -5,12 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mohmedhassan.cleaningapp.APIUrl;
@@ -43,6 +44,7 @@ import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 
 import javax.net.ssl.HostnameVerifier;
@@ -59,7 +61,7 @@ public class CompaniesActivity extends AppCompatActivity {
     private DividerItemDecoration dividerItemDecoration;
     private LinearLayoutManager linearLayoutManager;
     Companies_itemAdapter companies_itemAdapter;
-    private ArrayList<DataModelCompanies_item> dataModelCompanyDeatils = new ArrayList<>();
+    private ArrayList<DataModelCompanies_item> dataModelCompanies_itemArrayList = new ArrayList<>();
     private ArrayList<DataModelCompanies_item> Array_Sort ;
     String AccessCodeCountry;
     LinearLayout linearlayout_addpriceCompanies;
@@ -67,6 +69,7 @@ public class CompaniesActivity extends AppCompatActivity {
     private ArrayList<DataModel_itemOreder> dataModels = new ArrayList<>();
     RecyclerView.LayoutManager mLayoutManager;
     RecyclerView recyclerView_Item, recyclerview_CompanyDetais;
+    TextView AllComapnies,TopCompanies, HighestPrice, LowestPrice;
     ProgressBar progressBar;
     JSONObject jsonObjectCompanies;
     ImageView back_companies;
@@ -88,17 +91,57 @@ public class CompaniesActivity extends AppCompatActivity {
         recyclerview_CompanyDetais = findViewById(R.id.recyclerview_CompanyDetais);
         SearchInput = findViewById(R.id.search_input);
         back_companies = findViewById(R.id.back_companies);
+
+
+        AllComapnies = findViewById(R.id.tv_all_company_companies);
+        TopCompanies = findViewById(R.id.tv_top_company_companies);
+        HighestPrice = findViewById(R.id.tv_highest_price_companies);
+        LowestPrice = findViewById(R.id.tv_lowest_price_companies);
+
         progressBar = findViewById(R.id.m_progress_company);
         editTextSearch = (EditText) findViewById(R.id.editText);
 
-      //  dataModelCompanyDeatils = populateList();
+      //  dataModelCompanies_itemArrayList = populateList();
         Array_Sort = new ArrayList<>();
       //  Array_Sort = populateList();
 
         RecycleViewItem();
-        RecycleViewCompanyDetails();
+        RecycleViewCompanies();
 
+        AllComapnies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                Toast.makeText(CompaniesActivity.this, "All Comapnies", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        TopCompanies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(CompaniesActivity.this, "Top Companies", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        HighestPrice.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onClick(View v) {
+
+                dataModelCompanies_itemArrayList.sort(Comparator.comparing(DataModelCompanies_item::getMunimum_Order_Number));
+               // Toast.makeText(CompaniesActivity.this, "Highest Price", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        LowestPrice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(CompaniesActivity.this, "Lowest Price", Toast.LENGTH_SHORT).show();
+
+            }
+        });
         back_companies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,7 +154,7 @@ public class CompaniesActivity extends AppCompatActivity {
                 new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position)  {
-              /*  DataModelCompanies_item spaceListData = dataModelCompanyDeatils.get(position);
+              /*  DataModelCompanies_item spaceListData = dataModelCompanies_itemArrayList.get(position);
                 Toast.makeText(context, spaceListData.getCompanyName(), Toast.LENGTH_SHORT).show();*/
                 Intent intent = new Intent(CompaniesActivity.this, CompanyDetailsActivity.class);
                 startActivity(intent);
@@ -151,12 +194,12 @@ public class CompaniesActivity extends AppCompatActivity {
 
                 textlength = editTextSearch.getText().length();
                 Array_Sort.clear();
-                for (int i = 0; i < dataModelCompanyDeatils.size(); i++) {
-                    if (textlength <= dataModelCompanyDeatils.get(i).getCompanyName().length()) {
-                        Log.d("ertyyy", dataModelCompanyDeatils.get(i).getCompanyName().toLowerCase().trim());
-                        if (dataModelCompanyDeatils.get(i).getCompanyName().toLowerCase().trim().contains(
+                for (int i = 0; i < dataModelCompanies_itemArrayList.size(); i++) {
+                    if (textlength <= dataModelCompanies_itemArrayList.get(i).getCompanyName().length()) {
+                        Log.d("ertyyy", dataModelCompanies_itemArrayList.get(i).getCompanyName().toLowerCase().trim());
+                        if (dataModelCompanies_itemArrayList.get(i).getCompanyName().toLowerCase().trim().contains(
                                 editTextSearch.getText().toString().toLowerCase().trim())) {
-                            Array_Sort.add(dataModelCompanyDeatils.get(i));
+                            Array_Sort.add(dataModelCompanies_itemArrayList.get(i));
                         }
                     }
                 }
@@ -186,18 +229,18 @@ public class CompaniesActivity extends AppCompatActivity {
 
     }
 
-    private ArrayList<DataModelCompanies_item> populateList(){
+   /* private ArrayList<DataModelCompanies_item> populateList(){
 
         ArrayList<DataModelCompanies_item> list = new ArrayList<>();
 
         for(int i = 0; i < 8; i++){
             DataModelCompanies_item imageModel = new DataModelCompanies_item();
-            imageModel.setCompanyName(String.valueOf(dataModelCompanyDeatils.get(i)));
+            imageModel.setCompanyName(String.valueOf(dataModelCompanies_itemArrayList.get(i)));
             list.add(imageModel);
         }
 
         return list;
-    }
+    }*/
 
 
     private void RecycleViewItem() {
@@ -223,9 +266,19 @@ public class CompaniesActivity extends AppCompatActivity {
 
     }
 
-    private void RecycleViewCompanyDetails() {
+    private void RecycleViewCompanies() {
 
-      //  String searchInput = String.valueOf(SearchInput);
+        companies_itemAdapter = new Companies_itemAdapter(context, dataModelCompanies_itemArrayList);
+        mLayoutManager = new LinearLayoutManager(context
+                , LinearLayoutManager.VERTICAL, false);
+        recyclerview_CompanyDetais.setLayoutManager(mLayoutManager);
+        recyclerview_CompanyDetais.setItemAnimator(new DefaultItemAnimator());
+        recyclerview_CompanyDetais.setAdapter(companies_itemAdapter);
+
+
+        RecycleViewCompaniesItem();
+
+     /* //  String searchInput = String.valueOf(SearchInput);
         String From = "3";
         String To = "9";
         String Order = "";
@@ -243,7 +296,37 @@ public class CompaniesActivity extends AppCompatActivity {
         params.put("min_price", Price);
         params.put("search", SearchInput);
         params.put("lang", Language);
-        initializeGetCompanies(false, params);
+        initializeGetCompanies(false, params);*/
+
+    }
+
+    private void RecycleViewCompaniesItem() {
+
+
+        DataModelCompanies_item dataModelCompanies_item = new DataModelCompanies_item(R.drawable.image_company,"Company 1",
+                "5","10","1500",R.string.commnets,R.string.reviews,
+                R.string.minimum_order,R.string.car_companies,R.string.gps_delevary,4.6);
+        dataModelCompanies_itemArrayList.add(dataModelCompanies_item);
+
+        dataModelCompanies_item = new DataModelCompanies_item(R.drawable.image_company,"Company 2",
+                "7","12","1000",R.string.commnets,R.string.reviews,
+                R.string.minimum_order,R.string.car_companies,R.string.gps_delevary,3.5);
+        dataModelCompanies_itemArrayList.add(dataModelCompanies_item);
+
+        dataModelCompanies_item = new DataModelCompanies_item(R.drawable.image_company,"Company 3",
+                "3","5","2000",R.string.commnets,R.string.reviews,
+                R.string.minimum_order,R.string.car_companies,R.string.gps_delevary,5);
+        dataModelCompanies_itemArrayList.add(dataModelCompanies_item);
+
+        dataModelCompanies_item = new DataModelCompanies_item(R.drawable.image_company,"Company 4",
+                "2","5","500",R.string.commnets,R.string.reviews,
+                R.string.minimum_order,R.string.car_companies,R.string.gps_delevary,2.7);
+        dataModelCompanies_itemArrayList.add(dataModelCompanies_item);
+
+        dataModelCompanies_item = new DataModelCompanies_item(R.drawable.image_company,"Company 5",
+                "6","3","750",R.string.commnets,R.string.reviews,
+                R.string.minimum_order,R.string.car_companies,R.string.gps_delevary,1.6);
+        dataModelCompanies_itemArrayList.add(dataModelCompanies_item);
 
     }
 
@@ -352,7 +435,7 @@ public class CompaniesActivity extends AppCompatActivity {
 
                     for (int i = 0; i < object.length(); i++) {
                         //gets the ith Json object of JSONArray
-                        DataModelCompanies_item modelCompanyDeatils = new DataModelCompanies_item();
+                      //  DataModelCompanies_item modelCompanyDeatils = new DataModelCompanies_item();
                         jsonObjectCompanies = object.getJSONObject(i);
                         modelCompanyDeatils.setCompanyName(jsonObjectCompanies.getString("company_name"));
                         modelCompanyDeatils.setPhoto(R.drawable.image_company);
@@ -371,8 +454,8 @@ public class CompaniesActivity extends AppCompatActivity {
                         else
                             modelCompanyDeatils.setRating(3);
 
-                        dataModelCompanyDeatils.add(modelCompanyDeatils);
-                        companies_itemAdapter = new Companies_itemAdapter(context, dataModelCompanyDeatils);
+                        dataModelCompanies_itemArrayList.add(modelCompanyDeatils);
+                        companies_itemAdapter = new Companies_itemAdapter(context, dataModelCompanies_itemArrayList);
                         mLayoutManager = new LinearLayoutManager(context
                                 , LinearLayoutManager.VERTICAL, false);
                         recyclerview_CompanyDetais.setLayoutManager(mLayoutManager);

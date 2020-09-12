@@ -3,7 +3,7 @@ package com.mohmedhassan.cleaningapp.Forgetpassword_Password;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -61,9 +61,9 @@ public class Forgetpassword_Password_Activity extends AppCompatActivity {
         Btn_Submit_forgetpassword = findViewById(R.id.btn_submit_forgetpassword);
         m_progress_ForgetPassword_password = findViewById(R.id.m_progress_ForgetPassword_password);
 
-        b = new Bundle();
+      /*  b = new Bundle();
         b = getIntent().getExtras();
-        Email = b.getString("Code_email");
+        Email = b.getString("Code_email");*/
 
         Ed_password_forgetpassword.addTextChangedListener(new TextWatcher() {
             @Override
@@ -110,15 +110,19 @@ public class Forgetpassword_Password_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                passwordHolder = Ed_password_forgetpassword.getText().toString();
+
+                Intent intent = new Intent(Forgetpassword_Password_Activity.this, LoginActivity.class);
+                startActivity(intent);
+
+              //  passwordHolder = Ed_password_forgetpassword.getText().toString();
 
 
-                HashMap<String,String> params = new HashMap<>();
+              /*  HashMap<String,String> params = new HashMap<>();
                 //Log.d("Verification","Mail: "+mail+" , code: "+verfication_num);
                 params.put("email",b.getString("Code_email"));
                 params.put("newpassword", passwordHolder);
                 initializeRegister(false,params);
-
+*/
               /*  if(validateInputs()){
 
 

@@ -3,7 +3,7 @@
     <string name="app_name">cleaning</string>
 
     <string name="facebook_app_id">431074714318007</string>
-    <string name="fb_login_protocol_scheme">fb431074714318007</string>
+    <string name="fb_login_protocol_schemee">fb431074714318007</string>
 
     <string name="twitter_consumer_key">d1UtpayL7QuKWXDagE4joNOln</string>
     <string name="twitter_consumer_secret">U7pYygEpvgRCIutI1Mu3398EOxWmLd0seR1k9gJf2CyGHLvuFa</string>
@@ -88,5 +88,22 @@
     <string name="add_your_email" translatable="false">ادخل الايميل لكي تغير</string>
     <string name="your_password" translatable="false">كلمة السر</string>
 
+
+    <string-array name="country">
+        <item> اختار البلد</item>
+        <item> مصر </item>
+
+    </string-array>
+
+    <string-array name="city">
+        <item>اختار المدينة</item>
+        <item>المعادي</item>
+        <item>الجيزة </item>
+        <item>مدينة نصر</item>
+        <item>الدقي</item>
+        <item>المهندسين</item>
+
+
+    </string-array>
 
 </resources>

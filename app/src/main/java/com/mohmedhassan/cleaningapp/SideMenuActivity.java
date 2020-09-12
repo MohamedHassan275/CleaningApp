@@ -9,12 +9,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.navigation.NavigationView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -39,15 +39,13 @@ import org.json.JSONTokener;
 import java.util.HashMap;
 import java.util.Locale;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SideMenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     Context context;
     LinearLayout Linearlayour_CarWash,Linearlayour_HouseCleaning,Linearlayour_Landry;
-    CircleImageView ImageProfile;
-    ImageView imageViewGoProfile;
+    ImageView imageViewGoProfile, ImageProfile;
     TextView textViewGoProfile,NameUserProfile,CityUSerProfile;
     Button btn_sign_out;
     Dialog dialog;
@@ -66,7 +64,7 @@ public class SideMenuActivity extends AppCompatActivity
 
         SharedPreferences sharedPreferences = getSharedPreferences("names", Context.MODE_PRIVATE);
         String username = sharedPreferences.getString("username", "");
-        Toast.makeText(this, username, Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, username, Toast.LENGTH_SHORT).show();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -86,7 +84,7 @@ public class SideMenuActivity extends AppCompatActivity
          btn_sign_out = headerLayout.findViewById(R.id.btn_sign_out_side_menu);
          navigationView.setNavigationItemSelectedListener(this);
 
-        ShowImageProfileAndName();
+      //  ShowImageProfileAndName();
 
         Linearlayour_CarWash.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,7 +123,7 @@ public class SideMenuActivity extends AppCompatActivity
         });
 
 
-      ImageProfile.setOnClickListener(new View.OnClickListener() {
+        ImageProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -328,7 +326,18 @@ public class SideMenuActivity extends AppCompatActivity
             Intent intent = new Intent(SideMenuActivity.this, ChangeLangaugeAcitivty.class);
             startActivity(intent);
 
-        }else if (R.id.nav_sign_out == item.getActionView().findViewById(R.id.btn_sign_out_side_menu).getId()) {
+        } else if (id == R.id.nav_sign_out) {
+
+
+
+            SharedPreferences sharedPreferences = getSharedPreferences("names", Context.MODE_PRIVATE);
+            sharedPreferences.edit().clear().commit();
+            startActivity(new Intent(SideMenuActivity.this, LoginActivity.class));
+            finish();
+
+          //  Toast.makeText(context, "Done", Toast.LENGTH_SHORT).show();
+
+        }/*else if (R.id.nav_sign_out == item.getActionView().findViewById(R.id.btn_sign_out_side_menu).getId()) {
 
             SharedPreferences sharedPreferences = getSharedPreferences("names", Context.MODE_PRIVATE);
             sharedPreferences.edit().clear().commit();
@@ -337,7 +346,7 @@ public class SideMenuActivity extends AppCompatActivity
 
             Toast.makeText(context, "Done", Toast.LENGTH_SHORT).show();
 
-        }
+        }*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

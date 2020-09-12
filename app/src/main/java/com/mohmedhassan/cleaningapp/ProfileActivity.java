@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -40,12 +40,11 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.X509TrustManager;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileActivity extends AppCompatActivity {
 
     Context context;
-    CircleImageView ImageUser;
+    ImageView ImageUser;
     TextView NameUser,CityUser;
     ProgressBar progressBar;
     LinearLayout linearLayout_EditProfile,linearLayout_Order,linearLayout_Offers,linearLayout_Share,linearLayout_Coupons,
@@ -114,7 +113,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        ShowProfile();
+      //  ShowProfile();
 
 
 

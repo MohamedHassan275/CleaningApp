@@ -3,7 +3,7 @@ package com.mohmedhassan.cleaningapp.Register;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -22,6 +22,7 @@ import com.mohmedhassan.cleaningapp.HTTP_GET.HttpCall_Get;
 import com.mohmedhassan.cleaningapp.HTTP_GET.HttpRequest_Get;
 import com.mohmedhassan.cleaningapp.Login.LoginActivity;
 import com.mohmedhassan.cleaningapp.R;
+import com.mohmedhassan.cleaningapp.SideMenuActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -53,6 +54,7 @@ public class RegisterActivity extends AppCompatActivity  {
     EditText Ed_username_register, Ed_email_register, Ed_password_register;
     TextView  Login_Register, Tv_name, Tv_email, Tv_password,Tv_Country;
     Spinner SpCountry;
+    private ArrayAdapter<CharSequence> arrayAdapter_country;
     Button Btn_Register;
     String LanguageApp;
     ArrayList<country_intity_Country> countryList = new ArrayList<>();
@@ -65,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity  {
 
         DevineView();
         SetOnClickListener();
-        GetCountry();
+      //  GetCountry();
 
 
     }
@@ -253,11 +255,16 @@ public class RegisterActivity extends AppCompatActivity  {
             }
         });
 
+        arrayAdapter_country = ArrayAdapter.createFromResource(this,
+                R.array.country , android.R.layout.simple_spinner_item);
+        arrayAdapter_country.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        SpCountry.setAdapter(arrayAdapter_country);
+
         Btn_Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                EmailHolder = Ed_email_register.getText().toString();
+             /*   EmailHolder = Ed_email_register.getText().toString();
                 NameHolder = Ed_username_register.getText().toString();
                 PasswordHolder = Ed_password_register.getText().toString();
                 Country = SpCountry.getSelectedItem().toString();
@@ -271,12 +278,14 @@ public class RegisterActivity extends AppCompatActivity  {
                     params.put("name",NameHolder);
                     params.put("password",PasswordHolder);
                     params.put("country_id",Country);
-                    initializeRegister(false,params);
+                    initializeRegister(false,params);*/
+
+                Intent intent = new Intent(RegisterActivity.this, SideMenuActivity.class);
+                startActivity(intent);
 
                 }
 
-            }
-        });
+            });
         Login_Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

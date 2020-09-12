@@ -2,7 +2,7 @@ package com.mohmedhassan.cleaningapp.ForgetPasswordEmailCode;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mohmedhassan.cleaningapp.ForgetPasswordVerifyCode;
 import com.mohmedhassan.cleaningapp.R;
@@ -38,10 +37,10 @@ public class ForgetPassword_Email_Code extends AppCompatActivity {
 
 
 
-        b = new Bundle();
+     /*   b = new Bundle();
         b = getIntent().getExtras();
         Code = b.getString("code");
-        Email = b.getString("email");
+        Email = b.getString("email");*/
 
         Ed_emailCode_forgetpassword.addTextChangedListener(new TextWatcher() {
             @Override
@@ -67,7 +66,11 @@ public class ForgetPassword_Email_Code extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                emailCode = Ed_emailCode_forgetpassword.getText().toString();
+
+                Intent intent = new Intent(ForgetPassword_Email_Code.this, ForgetPasswordVerifyCode.class);
+                startActivity(intent);
+
+              /*  emailCode = Ed_emailCode_forgetpassword.getText().toString();
 
               //  Toast.makeText(ForgetPassword_Email_Code.this, "Verify", Toast.LENGTH_SHORT).show();
                 m_progress_ForgetPassword_email_code.setVisibility(View.VISIBLE);
@@ -85,7 +88,7 @@ public class ForgetPassword_Email_Code extends AppCompatActivity {
                         m_progress_ForgetPassword_email_code.setVisibility(View.GONE);
                         Toast.makeText(getApplicationContext(),"invalid Code ..",Toast.LENGTH_LONG).show();
 
-                    }
+                    }*/
 
 
 

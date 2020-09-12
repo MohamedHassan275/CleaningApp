@@ -6,9 +6,9 @@ public class city_intity_Country {
     String City_id;
 
 
-    public city_intity_Country(String city_name) {
+    public city_intity_Country(String city_name, String city_id) {
         this.city_name = city_name;
-        //this.City_id = city_id;
+        City_id = city_id;
     }
 
     public String getCity_name() {

@@ -2,7 +2,7 @@
     <string name="app_name">cleaning</string>
 
     <string name="facebook_app_id">431074714318007</string>
-    <string name="fb_login_protocol_scheme">fb431074714318007</string>
+    <string name="fb_login_protocol_schemee">fb431074714318007</string>
 
     <string name="twitter_consumer_key">d1UtpayL7QuKWXDagE4joNOln</string>
     <string name="twitter_consumer_secret">U7pYygEpvgRCIutI1Mu3398EOxWmLd0seR1k9gJf2CyGHLvuFa</string>
@@ -87,6 +87,23 @@
     <string name="add_your_email" translatable="false">Add your email to reset</string>
     <string name="your_password" translatable="false">your password</string>
 
+
+    <string-array name="country">
+        <item> Select Country</item>
+        <item> Egypt </item>
+
+    </string-array>
+
+    <string-array name="city">
+        <item>Select city</item>
+        <item>maadi</item>
+        <item>Giza </item>
+        <item>Nasr City</item>
+        <item>Dokki</item>
+        <item>Mohandeseen</item>
+
+
+    </string-array>
 
 
 </resources>

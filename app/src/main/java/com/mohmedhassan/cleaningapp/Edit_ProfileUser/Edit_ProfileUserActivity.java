@@ -8,10 +8,10 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Base64;
@@ -27,6 +27,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/*
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
@@ -41,6 +42,7 @@ import com.karumi.dexter.listener.DexterError;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.PermissionRequestErrorListener;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
+*/
 import com.mohmedhassan.cleaningapp.APIUrl;
 import com.mohmedhassan.cleaningapp.HTTP_GET.HttpCall_Get;
 import com.mohmedhassan.cleaningapp.HTTP_GET.HttpRequest_Get;
@@ -65,8 +67,6 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
@@ -74,7 +74,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.X509TrustManager;
 
-import de.hdodenhof.circleimageview.CircleImageView;
+//import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Edit_ProfileUserActivity extends AppCompatActivity {
 
@@ -90,9 +90,10 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
     TextView Tv_Email, Tv_Mobile, Tv_Age, Tv_Password, Tv_Country, Tv_City;
     Button Btn_save_profile;
     ProgressBar progressBar, progressBarImage;
-    CircleImageView ImageProfile;
     String Url_iamge = "http://x4to.com/public/api/addImage";
     Spinner Sp_Country, Sp_City;
+    private ArrayAdapter<CharSequence> arrayAdapter_Country;
+    private ArrayAdapter<CharSequence> arrayAdapter_City;
     ArrayList<country_intity_Country> countryList = new ArrayList<>();
     ArrayList<String> spinnercountry = new ArrayList<>();
     private static final String KEY_EMPTY = "";
@@ -101,11 +102,11 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
     Uri filePath;
     String country_id;
     String AccessCodeCountry, LanguageApp;
-    ImageView back_edit_profile;
-    String email, age, password, sp_countryName, sp_cityName, imageProfilee, country_name,Lang;
+    ImageView back_edit_profile, ImageProfile;
+    String email, age, password, sp_countryName, sp_cityName, imageProfilee, country_name, Lang;
     int mobile, ImageView;
     private static final int STORAGE_PERMISSION_CODE = 123;
-    private RequestQueue rQueue;
+    //  private RequestQueue rQueue;
     private ArrayList<HashMap<String, String>> arraylist;
 
     @Override
@@ -114,7 +115,7 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_profile);
 
 
-        requestMultiplePermissions();
+      //  requestMultiplePermissions();
 
 
         Ed_Email = findViewById(R.id.ed_email_profile);
@@ -136,13 +137,17 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
         progressBarImage = findViewById(R.id.m_progress_Image_profile);
 
 
-        GetCountry();
-        GetCity(country_id);
+
+      //  GetCountry();
+        // GetCity(country_id);
         setOnClickListener();
 
 
     }
 
+
+
+    @SuppressLint("ResourceType")
     private void setOnClickListener() {
 
         Ed_Email.addTextChangedListener(new TextWatcher() {
@@ -253,10 +258,11 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-               /* Intent intent = new Intent(Edit_ProfileUserActivity.this, ProfileActivity.class);
-                startActivity(intent);*/
+                Intent intent = new Intent(Edit_ProfileUserActivity.this, ProfileActivity.class);
+                startActivity(intent);
+                Toast.makeText(Edit_ProfileUserActivity.this, "Upload The Photo Done", Toast.LENGTH_SHORT).show();
 
-                UploadProfile();
+                //  UploadProfile();
 
 
             }
@@ -266,15 +272,27 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-               Intent intent = new Intent(Edit_ProfileUserActivity.this, ProfileActivity.class);
+                Intent intent = new Intent(Edit_ProfileUserActivity.this, ProfileActivity.class);
                 startActivity(intent);
 
 
             }
         });
 
+       /* arrayAdapter_Country = ArrayAdapter.createFromResource(this,
+                R.array.country, android.R.layout.simple_spinner_item);
+        arrayAdapter_Country.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Sp_Country.setAdapter(arrayAdapter_Country);
+
+        arrayAdapter_City = ArrayAdapter.createFromResource(this,
+                R.array.city, android.R.layout.simple_spinner_item);
+        arrayAdapter_City.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Sp_City.setAdapter(arrayAdapter_City);
+*/
 
     }
+
+
 
     private void UploadProfile() {
 
@@ -412,8 +430,8 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
 
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), contentURI);
-                // imageView.setImageBitmap(bitmap);
-                uploadImage(bitmap);
+                ImageProfile.setImageBitmap(bitmap);
+
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -669,8 +687,8 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
                     for (int i = 0; i < object.length(); i++) {
                         JSONObject itemCity = object.getJSONObject(i);  //gets the ith Json object of JSONArray
                         city = itemCity.getString("city_name");
-                        //  city_id  = itemCity.getString("id");
-                        cityList.add(new city_intity_Country(city));
+                        city_id  = itemCity.getString("id");
+                        cityList.add(new city_intity_Country(city,city_id));
                         spinnercity.add(city);
                          Toast.makeText(Edit_ProfileUserActivity.this, city, Toast.LENGTH_SHORT).show();
 
@@ -778,7 +796,7 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
 
     }*/
 
-    private void uploadImage(final Bitmap bitmap) {
+   /* private void uploadImage(final Bitmap bitmap) {
 
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, Url_iamge,
                 new Response.Listener<NetworkResponse>() {
@@ -832,9 +850,9 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
                 return params;
             }
 
-            /*
+            *//*
              *pass files using below method
-             * */
+             * *//*
             @Override
             protected Map<String, DataPart> getByteData() {
                 Map<String, DataPart> params = new HashMap<>();
@@ -845,7 +863,7 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
         };
 
 
-        Volley.newRequestQueue(this).add(volleyMultipartRequest);
+        Volley.newRequestQueue(this).add(volleyMultipartRequest);*/
 
       /*  volleyMultipartRequest.setRetryPolicy(new DefaultRetryPolicy(
                 0,
@@ -853,7 +871,7 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         rQueue = Volley.newRequestQueue(Edit_ProfileUserActivity.this);
         rQueue.add(volleyMultipartRequest);*/
-    }
+
 
     public byte[] getFileDataFromDrawable(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -861,7 +879,7 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
         return byteArrayOutputStream.toByteArray();
     }
 
-    private void requestMultiplePermissions() {
+  /*  private void requestMultiplePermissions() {
         Dexter.withActivity(this)
                 .withPermissions(
 
@@ -895,7 +913,7 @@ public class Edit_ProfileUserActivity extends AppCompatActivity {
                 })
                 .onSameThread()
                 .check();
-    }
+    }*/
 
 
     @SuppressLint("StaticFieldLeak")
